@@ -2,6 +2,7 @@
 #include "FuncA.hpp"
 #include "FuncB.hpp"
 #include "FuncC.hpp"
+#include "FuncD.hpp"
 #include "Search.hpp"
 
 double funcA_wrapper(double t) {
@@ -14,6 +15,10 @@ double funcB_wrapper(double t) {
 }
 double funcC_wrapper(double t) {
     FuncC f;
+    return f.func(t);
+}
+double funcD_wrapper(double t) {
+    FuncD f;
     return f.func(t);
 }
 
@@ -29,17 +34,21 @@ int main() {
     };
 
     // Exemple : recherche sur l'intervalle [0, 10] avec un pas de 0.5
-    
+
     min_value = std::numeric_limits<double>::infinity();
     search.run(funcA_wrapper, 0.0, 10.0, 0.5, min_condition);
     std::cout << "Minimum trouvé : " << min_value << std::endl;
-    
+
     min_value = std::numeric_limits<double>::infinity();
     search.run(funcB_wrapper, 0.0, 10.0, 0.5, min_condition);
     std::cout << "Minimum trouvé : " << min_value << std::endl;
-    
+
     min_value = std::numeric_limits<double>::infinity();
     search.run(funcC_wrapper, 0.0, 10.0, 0.5, min_condition);
+    std::cout << "Minimum trouvé : " << min_value << std::endl;
+
+    min_value = std::numeric_limits<double>::infinity();
+    search.run(funcD_wrapper, 0.0, 10.0, 0.5, min_condition);
     std::cout << "Minimum trouvé : " << min_value << std::endl;
 
     return 0;

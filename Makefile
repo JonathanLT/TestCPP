@@ -2,7 +2,7 @@ CC = clang++
 CFLAGS = -Iinclude -Wall -Wextra -std=c++17
 SRC = src/main.cpp
 OBJ = $(SRC:.cpp=.o)
-TARGET = SearchMinimum
+TARGET = SearchMinimum.out
 
 all: $(TARGET)
 
